@@ -1,6 +1,6 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-## Proyecto blog con laravel
+## Proyecto blog con laravel mas APIS
 login registro con validaciones, diseño bootstrap 4 plantilla original se ven los posts, con titulo imagen o video, y parte del texto, para seguir leyendo se dirige a su post del usuario con nombre y fecha
 
 crud consultar o ver,agregar o crear,editar y eliminar con sus validaciones iniciales.
@@ -18,6 +18,38 @@ posee la relacion de base de datos con usuarios y su post
 posee relacion en el modelo de laravel para que sepa sus relaciones en las tablas
 
 posee factoris y seeds, en la base de datos, que son datos falsos o semillas, para que se agreguen tanto la tabla post como en tabla usuario de la base de datos
+
+## se agregaron las apis
+
+GUARDAR UNA PUBLICACIÓN
+## POST
+http://blog-mas-api-con-tdd.test/api/posts
+posee la validación la api de que el title y body, no se envíen sin texto
+
+CONSULTAR UN POST
+## GET
+http://blog-mas-api-con-tdd.test/api/posts/32
+posee que si no se encuentra esa ruta, laravel me muestra un 404
+
+EDITAR UNA PUBLICACIÓN 
+## PUT
+http://blog-mas-api-con-tdd.test/api/posts/32
+posee la validación el title y body, no pueden estar vacíos 
+
+ELIMINAR PUBLICACION
+## DELETE
+http://blog-mas-api-con-tdd.test/api/posts/30
+
+MOSTRAR LAS PUBLICACIONES
+## GET
+http://blog-mas-api-con-tdd.test/api/posts
+Pagina los resultados. Ej: En vez de enviarte 100 posts de golpe, los envía de 15 en 15
+
+## POSE AUTENTICACION DE USUARIO
+En laravel trae su seguridad de usario
+middleware('auth:api');
+Route::apiResource('posts', 'Api\PostController')->middleware('auth:api');
+
 
 ##  Comandos Laravel usados
 ## laravel new blog --auth 
